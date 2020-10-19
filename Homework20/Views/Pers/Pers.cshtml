@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+    <meta charset="utf-8">
+    <title>Краткая история игры Fallout. Персонажи</title>
+    <link href="~/css/Style.css" rel="stylesheet" />
+</head>
+<body class="BodyStyle">
+    <div class="HeaderDiv">
+        <script type="text/javascript" src="~/js/headerMenu.js"></script>
+    </div>
+    <header>
+        <div class="DivRow">
+            <h1 class="Headline">Основные персонажи Fallout: A Post Nuclear Role Playing Game</h1>
+        </div>
+    </header>
+    <div class="MainDiv">
+        <main>
+            <form class="RegularFontStyle" action="~/Pers/AddPers" method="post" enctype="multipart/form-data">
+                <span>Имя</span>
+                <input type="text" name="name" value="Имя персонажа" />
+                <span>Изображение</span>
+                <input type="file" accept="image/*" name="uploadImage" value="Изображение" />
+                <span></span>
+                <input type="text" name="bio" value="Описание персонажа" />
+                <input type="submit" value="Отправить" />
+            </form>
+            <table class="PersTable">
+                @foreach (var t in ViewBag.chrs)
+                {
+                    <tr>
+                        <td><img src="@t.Image" alt="@t.Name" /></td>
+                        <td>@t.Name</td>
+                        <td>@t.Bio</td>
+                    </tr>
+                }
+            </table>
+        </main>
+    </div>
+</body>
+</html>
